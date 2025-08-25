@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form Filler</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Job Application Form Filler</h1>
+            <p>Manage your application information</p>
+            <div class="extension-toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="extensionEnabled" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Extension Enabled</span>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot active"></span>
+                    <span class="status-text">Active</span>
+                </div>
+            </div>
+        </header>
+        <div class="popup-content">
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="profile">Profile</button>
+            <button class="tab-btn" data-tab="education">Education</button>
+            <button class="tab-btn" data-tab="experience">Experience</button>
+            <button class="tab-btn" data-tab="skills">Skills</button>
+        </div>
+        
+        <div class="tab-content active" id="profile">
+            <h3>Personal Information</h3>
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">ZIP Code</label>
+                    <input type="text" id="zipCode" name="zipCode">
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <input type="url" id="linkedin" name="linkedin">
+                </div>
+                <div class="form-group">
+                    <label for="portfolio">Portfolio URL</label>
+                    <input type="url" id="portfolio" name="portfolio">
+                </div>
+            </form>
+        </div>
+        
+        <div class="tab-content" id="education">
+            <h3>Education</h3>
+            <div id="educationList">
+                <div class="education-item">
+                    <div class="form-group">
+                        <label>Degree</label>
+                        <input type="text" name="degree" placeholder="e.g., Bachelor of Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Field of Study</label>
+                        <input type="text" name="fieldOfStudy" placeholder="e.g., Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Institution</label>
+                        <input type="text" name="institution" placeholder="e.g., University Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Graduation Date</label>
+                        <input type="month" name="graduationDate">
+                    </div>
+                    <div class="form-group">
+                        <label>GPA</label>
+                        <input type="text" name="gpa" placeholder="e.g., 3.8">
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="addEducation" class="btn-secondary">+ Add Education</button>
+        </div>
+        
+        <div class="tab-content" id="experience">
+            <h3>Work Experience</h3>
+            <div id="experienceList">
+                <div class="experience-item">
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" name="jobTitle" placeholder="e.g., Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" name="company" placeholder="e.g., Company Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="month" name="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="month" name="endDate">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" rows="3" placeholder="Brief description of your role and achievements"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="button" id="addExperience" class="btn-secondary">+ Add Experience</button>
+        </div>
+        
+        <div class="tab-content" id="skills">
+            <h3>Skills</h3>
+            <div class="form-group">
+                <label for="technicalSkills">Technical Skills</label>
+                <textarea id="technicalSkills" name="technicalSkills" rows="4" placeholder="e.g., JavaScript, Python, React, Node.js, SQL"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="softSkills">Soft Skills</label>
+                <textarea id="softSkills" name="softSkills" rows="4" placeholder="e.g., Leadership, Communication, Problem Solving, Teamwork"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="languages">Languages</label>
+                <textarea id="languages" name="languages" rows="2" placeholder="e.g., English (Native), Spanish (Fluent)"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifications">Certifications</label>
+                <textarea id="certifications" name="certifications" rows="3" placeholder="e.g., AWS Certified Developer, Google Cloud Professional"></textarea>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button type="button" id="saveAll" class="btn-primary">Save All Information</button>
+            <button type="button" id="exportData" class="btn-secondary">Export Data</button>
+            <button type="button" id="importData" class="btn-secondary">Import Data</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+        </div>
+        
+        <div id="status" class="status"></div>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html> 
